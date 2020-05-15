@@ -1,6 +1,7 @@
 # COVID-19 Data Visualization with Video Animation
 
-Author: [Kevin Montes](kjmontes1@gmail.com)
+Author: Kevin Montes
+Email: kjmontes1@gmail.com
 
 This repository has been forked from the [original New York Times repository](https://github.com/nytimes/covid-19-data) of the same name. It also relies on the geographic county data available [here](https://www.sciencebase.gov/catalog/item/52c79543e4b060b9ebca5bf4). The 'tl_2012_us_county.zip' should be downloaded into the repo before running any of the scripts. 
 
