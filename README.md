@@ -1,20 +1,16 @@
-# Coronavirus (Covid-19) Data in the United States
+# COVID-19 Data Visualization with Video Animation
 
-**NEW:** The data in the counties.csv, states.csv and us.csv now include both confirmed and probable Covid-19 cases and deaths. Because of changes in how states and local health departments are reporting their data, it is no longer possible to report a comprehensive “confirmed-only” dataset. Please see [our note for a full explanation](PROBABLE-CASES-NOTE.md) of the differences and how probable cases are defined.
+Author: [Kevin Montes](kjmontes1@gmail.com)
+
+This repository has been forked from the [original New York Times repository](https://github.com/nytimes/covid-19-data) of the same name. It also relies on the geographic county data available [here](https://www.sciencebase.gov/catalog/item/52c79543e4b060b9ebca5bf4). The 'tl_2012_us_county.zip' should be downloaded into the repo before running any of the scripts. 
 
 ---
 
 [ [U.S. Data](us.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv)) | [U.S. State-Level Data](us-states.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv)) | [U.S. County-Level Data](us-counties.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv)) ]
 
-The New York Times is releasing a series of data files with cumulative counts of coronavirus cases in the United States, at the state and county level, over time. We are compiling this time series data from state and local governments and health departments in an attempt to provide a complete record of the ongoing outbreak.
+The MATLAB scripts here can be used to make a video animation of the case and death data located in the 'us-counties.csv' file. Since this repository is forked, it can be cloned to get the most up-to-date data as it is made available by the New York Times. To plot, simply run the plot_usa_counties.m script. It is written in a way to support plotting other quantities, as any user can write their own function that can be called by the main routine. Two examples of this are shown in the 'get_cases_per_area.m' and 'get_daily_new_cases.m' files.
 
-Since late January, The Times has tracked cases of coronavirus in real time as they were identified after testing. Because of the widespread shortage of testing, however, the data is necessarily limited in the picture it presents of the outbreak.
-
-We have used this data to power our [maps](https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html) and [reporting](https://www.nytimes.com/coronavirus) tracking the outbreak, and it is now being made available to the public in response to requests from researchers, scientists and government officials who would like access to the data to better understand the outbreak.
-
-The data begins with the first reported coronavirus case in Washington State on Jan. 21, 2020. We will publish regular updates to the data in this repository. 
-
-## Live and Historical Data
+## Live and Historical Data (from the original repository)
 
 We are providing two sets of data with cumulative counts of coronavirus cases and deaths: one with our most current numbers for each geography and another with historical data showing the tally for each day for each geography.
 
@@ -92,7 +88,7 @@ We understand this breakout would also be valuable historically, and are working
 The live data can be found in files at the U.S. level in the [us.csv](live/us.csv) file, at the state level in the [states.csv](live/us-states.csv) file, and at the county level in the [counties.csv](live/us-counties.csv) file.
 
 
-## Methodology and Definitions
+## Methodology and Definitions (from the original repository)
 
 The data is the product of dozens of journalists working across several time zones to monitor news conferences, analyze data releases and seek clarification from public officials on how they categorize cases. 
 
@@ -218,7 +214,7 @@ The state reports lab-confirmed and probable cases and deaths separately at the 
 
 Our number of cases for Puerto Rico includes the results of serological cases in their total number of cases, we believe this more closely matches the definition of probable cases than confirmed cases as reported elsewhere. Our number of deaths is only deaths with a confirmed test.
 
-## License and Attribution
+## License and Attribution (from the original repository)
 
 In general, we are making this data publicly available for broad, noncommercial public use including by medical and public health researchers, policymakers, analysts and local news media.
 
@@ -233,14 +229,14 @@ See our [LICENSE](LICENSE) for the full terms of use for this data.
 This license is co-extensive with the Creative Commons Attribution-NonCommercial 4.0 International license, and licensees should refer to that license ([CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/legalcode)) if they have questions about the scope of the license.
 
 
-## Contact Us
+## Contact Us (from the original repository)
 
 If you have questions about the data or licensing conditions, please contact us at:
 
 covid-data@nytimes.com
 
 
-## Contributors
+## Contributors (from the original repository)
 
 Mitch Smith, Karen Yourish, Sarah Almukhtar, Keith Collins, Danielle Ivory and Amy Harmon have been leading our U.S. data collection efforts.
 
