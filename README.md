@@ -1,5 +1,7 @@
 # COVID-19 Data Visualization with Video Animation
 
+![Image of Mar. 22 Change in Cases Hotspot Map](Mar_22_hotspot_frame.jpg)
+
 Author: Kevin Montes
 
 Email: kjmontes1@gmail.com
@@ -11,7 +13,5 @@ The code in this repository also relies on the geographic county data available 
 ---
 
 [ [U.S. Data](us.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv)) | [U.S. State-Level Data](us-states.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv)) | [U.S. County-Level Data](us-counties.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv)) ]
-
-![Image of Mar. 22 Change in Cases Hotspot Map](Mar_22_hotspot_frame.jpg)
 
 The MATLAB scripts here were developed and tested with MATLAB version R2019b. They can be used to make a video animation of the case and death data located in the 'us-counties.csv' file. To plot, simply run the 'plot_usa_counties.m' script. It is written in a way to support plotting other quantities, as any user can write their own function that can be called by the main routine. Two examples of this are shown in the 'get_cases_per_area.m' and 'get_daily_new_cases.m' files.
