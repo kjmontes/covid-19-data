@@ -8,7 +8,7 @@ to_plot = 1;
 
 % Specify [start, end] dates for video. Can either be 'dd-mmm-yyyy' format, 
 % or chronological index of date (1 = first date in dataset)
-date_interval = {'01-Feb-2020','01-Mar-2020'}; 
+date_interval = {'21-Jan-2020','15-May-2020'}; 
 
 %% Grab data from file
 disp('Loading data ...')
@@ -77,10 +77,12 @@ ax = usamap('conus');
 %% Create DxC matrix (for D days, C counties) to store quantity to plot
 disp('Calculating daily case count ...')
 cases_array = zeros([D, C]);
+deaths_array = zeros([D, C]);
 for i=1:D
     today = find(DateNumber==unique_dates(i));
     [~,loc_geo,loc_fips] = intersect(geoid,fips(today),'stable');
     cases_array(i,loc_geo) = cases_array(i,loc_geo) + cases(today(loc_fips))';
+    deaths_array(i,loc_geo) = deaths_array(i,loc_geo) + deaths(today(loc_fips))';
 end
 
 % Calculate quantity for each county
