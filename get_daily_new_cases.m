@@ -18,5 +18,5 @@ info.color_map = @jet; % function handle to colormap
 info.cbar_fontsize = 12;
 info.cbar_label = ['% Change in Cases from Previous Day [' ...
         num2str(window_avg) '-day Moving Avg.]'];
-info.video_name = 'usa_covid19_changes.avi';
-info.video_type = 'Uncompressed AVI';
+info.video_name = 'usa_covid19_changes.mp4';
+info.video_type = 'MPEG-4';
