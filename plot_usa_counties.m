@@ -1,7 +1,7 @@
 % Specify [start, end] dates for video. Can either be 'dd-mmm-yyyy' format, 
 % or chronological index of date (1 = first date in dataset)
-to_plot = 2; % 1 for cases per area, 2 for change in moving avg. cases
-date_interval = {'20-May-2020','23-May-2020'};
+to_plot = 3; % 1 for cases per area, 2 for change in moving avg. cases
+date_interval = {'20-Mar-2020','15-Apr-2020'};
 states = {'conus'};
 
 % Load the data, with a 7 day buffer before the first day
@@ -24,9 +24,13 @@ end
 
 % Calculate quantity for each county
 if to_plot==1 % cases / sq. mile
-    [quant_to_plot,info] = get_cases_per_area(cases,geo_data.ALAND);
+    land_area = extractfield(county_shapes,'ALAND');
+    [quant_to_plot,info] = get_cases_per_area(cases,land_area);
 elseif to_plot==2
     [quant_to_plot,info] = get_daily_new_cases(cases,5);
+elseif to_plot==3
+    population = extractfield(county_shapes,'POPULATION');
+    [quant_to_plot,info] = get_cases_per_capita(cases,population);
 end
 
 %% Generate figure and set properties

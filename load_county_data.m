@@ -26,6 +26,23 @@ county_shapes = shaperead('./tl_2012_us_county/tl_2012_us_county.shp', ...
     'UseGeoCoords',true); % geographic data
 F = readtable('FIPS_codes.csv'); % table of states' FIPS prefix values
 
+%% Get population data
+opts = detectImportOptions('co-est2019-annres.xlsx');
+opts.DataRange = '5:3147'; opts.VariableNamesRange = '4:4';
+P = readtable('co-est2019-annres.xlsx',opts); % county population data
+P.Properties.VariableNames{'Var1'} = 'Area';
+area = cellfun(@(x) strip(x,'.'),P.Area,'UniformOutput',false);
+County = cellfun(@(x) x(1:strfind(x,',')-8), area, 'UniformOutput', false);
+State = cellfun(@(x) x(strfind(x,',')+2:end), area, 'UniformOutput', false);
+P = addvars(P,County,State,'After','Area');
+
+% Deal with exception to the rule
+indx = find(strcmp(area,'Carson City, Nevada'));
+P(indx,{'County'}) = {'Carson City'}; P(indx,{'State'}) = {'Nevada'};
+indx = find(strcmp(area,'District of Columbia, District of Columbia'));
+P(indx,{'County'}) = {'District of Columbia'};
+P(indx,{'State'}) = {'District of Columbia'};
+
 %% Check that input states are okay
 names = F.Name; names{end+1} = 'conus';
 not_found = zeros(size(states));
@@ -55,3 +72,22 @@ fips_geo = round(cellfun(@str2num,extractfield(county_shapes,'GEOID'))/1000);
 county_shapes = county_shapes(find(ismember(fips_geo,codes)));
 in_time = isbetween(regional_table.date,dates(1),dates(2));
 covid_data = regional_table(in_time,:);
+
+%% Add population data to each 'county' structure in 'county_shapes' array
+% - use 2019 population estimates from US Census Bureau
+% - see 'co-est2019-annres.xlsx' file for details
+for i=1:length(county_shapes)
+    fips = str2num(county_shapes(i).STATEFP); % get state ID
+    state = F.Name(F.FIPS==fips); state = state{1}; % get state name
+    county = county_shapes(i).NAME; % get county name
+    if strcmp(state,'South Dakota') & strcmp(county,'Shannon') 
+        county = 'Oglala Lakota'; % name changed in 2015
+        county_shapes(i).NAME = county;
+        county_shapes(i).NAMELSAD = 'Oglala Lakota County';
+    end
+    % Assume current population roughly the same as on Jan 1, 2019
+    % To change this assumption later, edit/add to the following line ...
+    pop = P(strcmp(P.State,state) & strcmp(P.County,county),:).x2019;
+    % Save population in the 'county_shapes' structure
+    county_shapes(i).POPULATION = pop;
+end
