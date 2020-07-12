@@ -10,6 +10,14 @@ Email: kjmontes1@gmail.com
 
 [ [U.S. Data](us.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv)) | [U.S. State-Level Data](us-states.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv)) | [U.S. County-Level Data](us-counties.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv)) ]
 
+[Geographic county data](https://www.sciencebase.gov/catalog/item/52c79543e4b060b9ebca5bf4)
+
+[Population Data](https://www.census.gov/newsroom/press-kits/2020/pop-estimates-county-metro.html) (based on latest US. Census Estimates for 2019)
+
+[Florida Hospital Data](https://bi.ahca.myflorida.com/t/ABICC/views/Public/COVIDHospitalizationsCounty?%3AisGuestRedirectFromVizportal=y&%3Aembed=y&fbclid=IwAR1Vidbf3ZOBVYSJynGR_5AH6IqmD2mfkaab8b9V-w-bQmTmPUSc6jNR0a4)
+
+## Background
+
 This repository has been forked from the [original New York Times repository](https://github.com/nytimes/covid-19-data) of the same name. Additional information about the datasets of COVID-19 cases and deaths can be found there in the 'README.md', including information about formatting, methodology, and licensing. The most up-to-date datasets can also be found there or at the links above.
 
 The code in this repository also relies on the geographic county data available [here](https://www.sciencebase.gov/catalog/item/52c79543e4b060b9ebca5bf4) in order to render geographical projections of county boundaries. The 'tl_2012_us_county.zip' should be downloaded into the repo before running any of the scripts. 
