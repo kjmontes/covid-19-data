@@ -6,6 +6,8 @@ Author: Kevin Montes
 
 Email: kjmontes1@gmail.com
 
+## Data Sources
+
 [ [U.S. Data](us.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us.csv)) | [U.S. State-Level Data](us-states.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv)) | [U.S. County-Level Data](us-counties.csv) ([Raw CSV](https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv)) ]
 
 This repository has been forked from the [original New York Times repository](https://github.com/nytimes/covid-19-data) of the same name. Additional information about the datasets of COVID-19 cases and deaths can be found there in the 'README.md', including information about formatting, methodology, and licensing. The most up-to-date datasets can also be found there or at the links above.
