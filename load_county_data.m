@@ -42,6 +42,8 @@ P(indx,{'County'}) = {'Carson City'}; P(indx,{'State'}) = {'Nevada'};
 indx = find(strcmp(area,'District of Columbia, District of Columbia'));
 P(indx,{'County'}) = {'District of Columbia'};
 P(indx,{'State'}) = {'District of Columbia'};
+indx = find(strcmp(area,'Baltimore city, Maryland'));
+P(indx,{'County'}) = {'Baltimore City'}; P(indx,{'State'}) = {'Maryland'};
 
 %% Check that input states are okay
 names = F.Name; names{end+1} = 'conus';
@@ -67,8 +69,8 @@ else
         codes(i) = F(strcmp(F.Name, states{i}), {'FIPS'}).FIPS;
     end
 end
-regional_table = csv_data(ismember(round(csv_data.fips/1000),codes),:);
-fips_geo = round(cellfun(@str2num,extractfield(county_shapes,'GEOID'))/1000);
+regional_table = csv_data(ismember(floor(csv_data.fips/1000),codes),:);
+fips_geo = floor(cellfun(@str2num,extractfield(county_shapes,'GEOID'))/1000);
 county_shapes = county_shapes(find(ismember(fips_geo,codes)));
 in_time = isbetween(regional_table.date,dates(1),dates(2));
 covid_data = regional_table(in_time,:);
